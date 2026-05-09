@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>MAPK FAIR 2026 | United for Peace</title>
+    <meta name="description" content="Kompetisi Pemuda untuk Perdamaian Dunia">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="500x500" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="500x500" href="favicon.png">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+
+    <!-- SOCIAL MEDIA PRATINJAU (IMAGE) -->
+    <meta property="og:title" content="MAPK FAIR 2026">
+    <meta property="og:description" content="Kompetisi Pemuda untuk Perdamaian Dunia">
+    <meta property="og:image" content="https://akuzumar.github.io/mapkfair26/ogimage.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://akuzumar.github.io/mapkfair26/ogimage.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        peace: {
+                            1: '#e6f0fd',
+                            2: '#cce0fb',
+                            3: '#99c2f6',
+                            4: '#66a4f1',
+                            text: '#0f172a',
+                            accent: '#0067DA',
+                            primary: '#011E55'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* === OPTIMASI & PERBAIKAN TOMBOL HP === */
+        body {
+            background: #f8fafc;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+
+        /* GLASSMORPHISM */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Navbar text color transition */
+        .nav-item-text {
+            color: #ffffff;
+        }
+
+        .nav-item-text.brand-year {
+            color: #bfdbfe;
+        }
+
+        .glass-nav .nav-item-text {
+            color: #334155;
+        }
+
+        .glass-nav .nav-item-text.brand-title {
+            color: #0f172a;
+        }
+
+        .glass-nav .nav-item-text.brand-year {
+            color: #0067DA;
+        }
+
+        .btn-nav-cta {
+            background: #ffffff;
+            color: #011E55;
+        }
+
+        .btn-nav-cta:hover {
+            background: #eff6ff;
+        }
+
+        .glass-nav .btn-nav-cta {
+            background: #0067DA;
+            color: #ffffff;
+        }
+
+        .glass-nav .btn-nav-cta:hover {
+            background: #011E55;
+        }
+
+        /* FLOATING ANIMATION */
+        .floating-img {
+            animation: floatSimple 4s ease-in-out infinite;
+            filter: drop-shadow(0 10px 15px rgba(3, 105, 161, 0.1));
+            will-change: transform;
+        }
+
+        @keyframes floatSimple {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* REVEAL ANIMATION */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            will-change: opacity, transform;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* TIMELINE */
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: #0369a1;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .timeline-box {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .left-box {
+            left: 0;
+        }
+
+        .right-box {
+            left: 50%;
+        }
+
+        .timeline-box::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: #ffffff;
+            border: 4px solid #0369a1;
+            top: 28px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .right-box::after {
+            left: -10px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .timeline-container::after {
+                left: 30px;
+                transform: none;
+            }
+
+            .timeline-box {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-box::after {
+                left: 20px;
+                right: auto;
+            }
+
+            .right-box {
+                left: 0;
+            }
+        }
+
+        /* BUTTON PRIMARY - TEPAT DAN TIDAK PECAH */
+        .btn-primary {
+            background: #0067DA;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 103, 218, 0.3);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            /* Mencegah teks tombol turun ke baris baru */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: #011E55;
+            box-shadow: 0 10px 15px -3px rgba(1, 30, 85, 0.4);
+        }
+
+        /* KHUSUS UNTUK TOMBOL REGISTRASI DI HP AGAR TEKS 1 BARIS & TIDAK PECAH */
+        @media (max-width: 640px) {
+            .btn-mobile-keep-inline {
+                white-space: nowrap !important;
+                font-size: 0.9rem !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+                display: inline-flex !important;
+                width: auto !important;
+                min-width: fit-content;
+            }
+
+            /* Pastikan parent container tidak memaksakan flex column yang merusak */
+            .register-button-wrapper {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            /* Tombol di hero section untuk mobile */
+            .hero-buttons {
+                flex-direction: row !important;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-buttons a {
+                white-space: nowrap;
+                font-size: 0.85rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        /* Efek hover ringan */
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-4px);
+        }
+
+        .group:hover .group-hover\:scale-110 {
+            transform: scale(1.05);
+        }
+
+        /* Hilangkan animasi berat */
+        .animate-pulse {
+            animation: none;
+        }
+
+        .bg-gradient-radial {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="antialiased font-sans text-peace-text">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-200 py-3" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo & Brand -->
+                <a href="#home"
+                    class="flex-shrink-0 font-poppins font-extrabold text-2xl tracking-tight flex items-center gap-3">
+                    <div
+                        class="w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden shadow-md border-2 border-white transition-transform duration-200 hover:scale-105">
+                        <img src="logo.png" alt="Logo MAPK Fair" class="w-full h-full object-cover" loading="eager">
+                    </div>
+                    <span class="nav-item-text brand-title transition-colors duration-200">MAPK FAIR <span
+                            class="nav-item-text brand-year transition-colors duration-200">2026</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home"
+                            class="nav-item-text hover:text-blue-200 transition px-3 py-2 rounded-md text-sm font-semibold relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-peace-accent after:left-1/2 after:bottom-0 after:transition-all hover:after:w-full hover:after:left-0">Beranda</a>
+                        <a href="#about"
+                            class="nav-item-text hover:text-blue-200 transition px-3 py-2 rounded-md text-sm font-semibold relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-peace-accent after:left-1/2 after:bottom-0 after:transition-all hover:after:w-full hover:after:left-0">Tentang</a>
+                        <a href="#competitions"
+                            class="nav-item-text hover:text-blue-200 transition px-3 py-2 rounded-md text-sm font-semibold relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-peace-accent after:left-1/2 after:bottom-0 after:transition-all hover:after:w-full hover:after:left-0">Lomba</a>
+                        <a href="#timeline"
+                            class="nav-item-text hover:text-blue-200 transition px-3 py-2 rounded-md text-sm font-semibold relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-peace-accent after:left-1/2 after:bottom-0 after:transition-all hover:after:w-full hover:after:left-0">Jadwal</a>
+
+                    </div>
+                </div>
+
+                <!-- CTA Button Desktop -->
+                <div class="hidden lg:block">
+                    <a href="#register"
+                        class="btn-nav-cta px-7 py-2.5 rounded-full font-bold text-sm tracking-wide shadow transition duration-200">
+                        Daftar Sekarang
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn"
+                        class="nav-item-text focus:outline-none p-2 bg-white/20 rounded-lg shadow-sm border border-white/30 backdrop-blur-sm transition-colors duration-200">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden glass-card mx-4 mt-3 rounded-2xl overflow-hidden border border-white/50 shadow-lg">
+            <div class="px-2 pt-3 pb-4 space-y-2 sm:px-3 text-center">
+                <a href="#home"
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-white/80 hover:text-peace-accent transition">Beranda</a>
+                <a href="#about"
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-white/80 hover:text-peace-accent transition">Tentang</a>
+                <a href="#competitions"
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-white/80 hover:text-peace-accent transition">Lomba</a>
+                <a href="#timeline"
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-white/80 hover:text-peace-accent transition">Jadwal</a>
+                <a href="kerjasama/"
+                    class="block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-white/80 hover:text-peace-accent transition">Kerjasama</a>
+                <div class="pt-3 border-t border-slate-200/50 mt-2">
+                    <a href="#register"
+                        class="block px-4 py-3 bg-peace-accent text-white rounded-xl font-bold hover:bg-sky-800 transition shadow-md">Daftar
+                        Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home"
+        class="min-h-screen flex items-center relative overflow-hidden pt-24 pb-32 bg-gradient-to-br from-[#011E55] to-[#0067DA]">
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0">
+            <svg class="relative block w-full h-16 md:h-24 lg:h-32" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C73.23,28.7,156.4,49,235.34,54.76A802.26,802.26,0,0,0,321.39,56.44Z"
+                    fill="#f8fafc"></path>
+            </svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mt-10 lg:mt-0">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
+                <!-- KIRI: Teks -->
+                <div class="w-full lg:w-1/2 text-center lg:text-left reveal">
+                    <div class="flex justify-center lg:hidden mb-8">
+                        <img src="logo.png" class="w-28 h-28 rounded-full shadow-xl border-4 border-white object-cover">
+                    </div>
+                    <div
+                        class="inline-flex items-center px-5 py-2 rounded-full bg-white/20 text-white font-bold text-sm mb-8 border border-white/30 shadow-sm backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-white mr-3"></span>
+                        <i class="fa-regular fa-calendar-check mr-2"></i> Puncak Acara: 29 Agustus 2026
+                    </div>
+                    <h1
+                        class="text-5xl md:text-6xl lg:text-7xl font-poppins font-extrabold mb-6 leading-tight text-white">
+                        United for Peace,<br />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">Together
+                            Humanity</span>
+                    </h1>
+                    <p
+                        class="text-lg md:text-xl text-blue-100 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                        Transformasi tiada henti untuk generasi muda. Bergabunglah dalam festival kompetisi terbesar
+                        tahun ini dan jadilah agen perdamaian dunia melalui karya dan inovasi.
+                    </p>
+
+                    <!-- HERO BUTTONS - Pastikan di HP tetap 1 baris untuk tombol Daftar Sekarang & Pelajari Event -->
+                    <div class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start hero-buttons">
+                        <a href="#register"
+                            class="bg-white text-[#011E55] px-6 py-3 rounded-full font-bold text-base text-center inline-flex items-center justify-center whitespace-nowrap hover:bg-blue-50 transition shadow-lg">
+                            Daftar Sekarang <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#about"
+                            class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-bold text-base text-center hover:bg-white/10 transition duration-200 shadow-sm inline-flex items-center justify-center whitespace-nowrap">
+                            <i class="fa-solid fa-circle-play mr-2"></i> Pelajari Event
+                        </a>
+                    </div>
+
+                    <!-- COUNTDOWN TIMER -->
+                    <div class="mt-10 mb-2 flex justify-center lg:justify-start gap-3 md:gap-4 text-white font-poppins">
+                        <div
+                            class="flex flex-col items-center px-4 py-3 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm shadow-sm min-w-[75px] md:min-w-[85px]">
+                            <span id="cd-days" class="text-2xl md:text-3xl font-extrabold">00</span>
+                            <span class="text-[10px] md:text-xs uppercase tracking-wider text-blue-100 mt-1">Hari</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center px-4 py-3 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm shadow-sm min-w-[75px] md:min-w-[85px]">
+                            <span id="cd-hours" class="text-2xl md:text-3xl font-extrabold">00</span>
+                            <span class="text-[10px] md:text-xs uppercase tracking-wider text-blue-100 mt-1">Jam</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center px-4 py-3 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm shadow-sm min-w-[75px] md:min-w-[85px]">
+                            <span id="cd-minutes" class="text-2xl md:text-3xl font-extrabold">00</span>
+                            <span
+                                class="text-[10px] md:text-xs uppercase tracking-wider text-blue-100 mt-1">Menit</span>
+                        </div>
+                        <div
+                            class="flex flex-col items-center px-4 py-3 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm shadow-sm min-w-[75px] md:min-w-[85px]">
+                            <span id="cd-seconds" class="text-2xl md:text-3xl font-extrabold">00</span>
+                            <span
+                                class="text-[10px] md:text-xs uppercase tracking-wider text-blue-100 mt-1">Detik</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex items-center justify-center lg:justify-start gap-4 opacity-70">
+                        <p class="text-sm font-semibold text-blue-200 uppercase tracking-wider">Tingkat Nasional</p>
+                        <span class="w-1.5 h-1.5 rounded-full bg-blue-300"></span>
+                        <p class="text-sm font-semibold text-blue-200 uppercase tracking-wider">SMP & SMA</p>
+                    </div>
+                </div>
+
+                <!-- KANAN: Gambar (desktop only) -->
+                <div class="hidden lg:flex w-full lg:w-1/2 justify-center reveal relative mt-10 lg:mt-0">
+                    <img src="logo.png" alt="MAPK Fair 2026 Hero"
+                        class="w-full max-w-sm md:max-w-md lg:max-w-lg floating-img object-contain z-10 transition-transform duration-300 hover:scale-105">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (tidak berubah) -->
+    <section id="about" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 reveal">
+            <div
+                class="glass-card rounded-[3rem] p-10 md:p-16 flex flex-col lg:flex-row items-center gap-16 border-2 border-white">
+                <div class="w-full lg:w-1/2 text-center lg:text-left">
+                    <h2 class="text-3xl md:text-4xl font-poppins font-bold mb-6 text-slate-800 leading-tight">Membangun
+                        Perdamaian Lewat <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-peace-accent to-teal-500">Prestasi</span>
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed mb-6 font-medium text-lg">MAPK FAIR adalah wadah prestisius
+                        bagi siswa SMP/MTs dan SMA/MA seluruh Indonesia untuk mengekspresikan diri, mengasah bakat, dan
+                        menggaungkan pesan perdamaian.</p>
+                    <p class="text-slate-600 leading-relaxed font-medium mb-8">Di tengah tantangan global, kita bersatu.
+                        Tema <strong
+                            class="text-peace-accent bg-blue-50 px-3 py-1.5 rounded-lg border border-blue-100">"World
+                            Peace"</strong> dipilih untuk menumbuhkan kesadaran generasi muda bahwa inovasi, seni, dan
+                        literasi adalah jembatan terbaik menuju dunia yang lebih baik.</p>
+                    <a href="#competitions"
+                        class="inline-flex font-bold text-peace-accent hover:text-sky-800 transition items-center text-lg border-b-2 border-peace-accent pb-1">Lihat
+                        Cabang Lomba <i class="fa-solid fa-arrow-right-long ml-3"></i></a>
+                </div>
+                <div class="w-full lg:w-1/2 grid grid-cols-2 gap-6 text-center relative">
+                    <div
+                        class="bg-white/80 p-8 rounded-[2rem] border border-white shadow-lg hover:-translate-y-2 transition duration-200">
+                        <div class="text-5xl font-poppins font-extrabold text-peace-accent mb-3">10</div>
+                        <p class="text-xs lg:text-sm font-bold text-slate-500 uppercase tracking-widest">Cabang Lomba
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white/80 p-8 rounded-[2rem] border border-white shadow-lg hover:-translate-y-2 transition duration-200">
+                        <div
+                            class="text-2xl md:text-3xl lg:text-4xl font-poppins font-extrabold text-teal-600 mb-3 flex items-center justify-center h-12">
+                            Nasional</div>
+                        <p class="text-xs lg:text-sm font-bold text-slate-500 uppercase tracking-widest">Tingkat Peserta
+                        </p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-br from-peace-accent to-sky-600 p-8 rounded-[2rem] col-span-2 shadow-xl hover:-translate-y-2 transition duration-200 text-white relative overflow-hidden">
+                        <div
+                            class="text-3xl md:text-4xl lg:text-5xl font-poppins font-extrabold mb-3 text-white drop-shadow-md">
+                            Jutaan Rupiah</div>
+                        <p class="text-xs lg:text-sm font-bold text-blue-100 uppercase tracking-widest relative z-10">
+                            Total Hadiah & Beasiswa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitions Section (tetap) -->
+    <section id="competitions" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <p class="text-peace-accent font-extrabold tracking-widest uppercase mb-3 text-sm">Pilih Medan Karyamu
+                </p>
+                <h2 class="text-4xl md:text-5xl font-poppins font-extrabold text-slate-800">Cabang <span
+                        class="text-peace-accent">Perlombaan</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 competition-grid">
+                <!-- Card 1 -->
+                <div
+                    class="glass-card p-10 rounded-[2.5rem] border-white border hover:bg-white/95 hover:-translate-y-2 transition-all duration-300 reveal group shadow-md">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-white to-blue-50 rounded-2xl flex items-center justify-center mb-8 text-peace-accent text-4xl shadow-md group-hover:scale-105 transition duration-200 border border-blue-100">
+                        <img src="mic.png" alt="Mic Icon" width="40" height="40">
+
+                    </div>
+                    <h3
+                        class="text-2xl font-poppins font-bold mb-4 text-slate-800 group-hover:text-peace-accent transition">
+                        Pidato & Speech</h3>
+                    <p class="text-slate-600 text-base mb-8 leading-relaxed font-medium">Suarakan pemikiranmu tentang
+                        perdamaian dunia dalam bahasa Indonesia maupun Inggris secara lugas.</p><a
+                        href="masukkanjuknispidato&speech.html"
+                        class="inline-flex items-center text-sm font-bold text-peace-accent bg-blue-50 px-5 py-2.5 rounded-full hover:bg-peace-accent hover:text-white transition-all duration-200">Unduh
+                        Panduan <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="glass-card p-10 rounded-[2.5rem] border-white border hover:bg-white/95 hover:-translate-y-2 transition-all duration-300 reveal group shadow-md">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-white to-teal-50 rounded-2xl flex items-center justify-center mb-8 text-teal-600 text-4xl shadow-md group-hover:scale-105 transition duration-200 border border-teal-100">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h3
+                        class="text-2xl font-poppins font-bold mb-4 text-slate-800 group-hover:text-teal-600 transition">
+                        Poster Digital</h3>
+                    <p class="text-slate-600 text-base mb-8 leading-relaxed font-medium">Visualisasikan harmoni dan
+                        toleransi antar umat manusia melalui karya desain digital yang memukau.</p><a
+                        href="masukkanjuknisposter.html"
+                        class="inline-flex items-center text-sm font-bold text-teal-600 bg-teal-50 px-5 py-2.5 rounded-full hover:bg-teal-600 hover:text-white transition-all duration-200">Unduh
+                        Panduan <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="glass-card p-10 rounded-[2.5rem] border-white border hover:bg-white/95 hover:-translate-y-2 transition-all duration-300 reveal group shadow-md">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-white to-emerald-50 rounded-2xl flex items-center justify-center mb-8 text-emerald-600 text-4xl shadow-md group-hover:scale-105 transition duration-200 border border-emerald-100">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3
+                        class="text-2xl font-poppins font-bold mb-4 text-slate-800 group-hover:text-emerald-600 transition">
+                        Cipta Essay & Cerpen</h3>
+                    <p class="text-slate-600 text-base mb-8 leading-relaxed font-medium">Tuliskan gagasan kritis atau
+                        cerita inspiratif yang mampu menyentuh hati dan membuka wawasan.</p><a
+                        href="masukkanjukniscerpen.html"
+                        class="inline-flex items-center text-sm font-bold text-emerald-600 bg-emerald-50 px-5 py-2.5 rounded-full hover:bg-emerald-600 hover:text-white transition-all duration-200">Unduh
+                        Panduan <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="glass-card p-10 rounded-[2.5rem] border-white border hover:bg-white/95 hover:-translate-y-2 transition-all duration-300 reveal group shadow-md">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-white to-pink-50 rounded-2xl flex items-center justify-center mb-8 text-pink-600 text-4xl shadow-md group-hover:scale-105 transition duration-200 border border-pink-100">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <h3
+                        class="text-2xl font-poppins font-bold mb-4 text-slate-800 group-hover:text-pink-600 transition">
+                        Video Edukasi (TikTok)</h3>
+                    <p class="text-slate-600 text-base mb-8 leading-relaxed font-medium">Manfaatkan media sosial untuk
+                        menyebarkan kampanye damai yang kreatif dan relevan dengan Gen-Z.</p><a
+                        href="masukkanjuknisvideotiktok.html"
+                        class="inline-flex items-center text-sm font-bold text-pink-600 bg-pink-50 px-5 py-2.5 rounded-full hover:bg-pink-600 hover:text-white transition-all duration-200">Unduh
+                        Panduan <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Card 5 -->
+                <div
+                    class="glass-card p-10 rounded-[2.5rem] border-white border hover:bg-white/95 hover:-translate-y-2 transition-all duration-300 reveal group shadow-md">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-white to-indigo-50 rounded-2xl flex items-center justify-center mb-8 text-indigo-600 text-4xl shadow-md group-hover:scale-105 transition duration-200 border border-indigo-100">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <h3
+                        class="text-2xl font-poppins font-bold mb-4 text-slate-800 group-hover:text-indigo-600 transition">
+                        Cover Song</h3>
+                    <p class="text-slate-600 text-base mb-8 leading-relaxed font-medium">Bawakan lagu-lagu bertema
+                        kemanusiaan dan perdamaian dengan aransemen dan suaramu sendiri.</p><a
+                        href="masukkanjukniscoversong.html"
+                        class="inline-flex items-center text-sm font-bold text-indigo-600 bg-indigo-50 px-5 py-2.5 rounded-full hover:bg-indigo-600 hover:text-white transition-all duration-200">Unduh
+                        Panduan <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Card 6 -->
+                <div
+                    class="glass-card p-10 rounded-[2.5rem] border-white border hover:bg-white/95 hover:-translate-y-2 transition-all duration-300 reveal group shadow-md">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-white to-yellow-50 rounded-2xl flex items-center justify-center mb-8 text-yellow-600 text-4xl shadow-md group-hover:scale-105 transition duration-200 border border-yellow-100">
+                        <i class="fa-solid fa-quran"></i>
+                    </div>
+                    <h3
+                        class="text-2xl font-poppins font-bold mb-4 text-slate-800 group-hover:text-yellow-600 transition">
+                        MTQ & Kaligrafi</h3>
+                    <p class="text-slate-600 text-base mb-8 leading-relaxed font-medium">Lantunkan ayat suci atau lukis
+                        keindahan ayatuhan yang mengajarkan kedamaian antar umat.</p><a
+                        href="masukkanjuknismyqdankaligrafi.html"
+                        class="inline-flex items-center text-sm font-bold text-yellow-600 bg-yellow-50 px-5 py-2.5 rounded-full hover:bg-yellow-600 hover:text-white transition-all duration-200">Unduh
+                        Panduan <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+                <div
+                    class="glass-card p-10 rounded-[2.5rem] border-white border hover:bg-white/95 hover:-translate-y-2 transition-all duration-300 reveal group shadow-md">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-white to-pink-50 rounded-2xl flex items-center justify-center mb-8 text-pink-600 text-4xl shadow-md group-hover:scale-105 transition duration-200 border border-pink-100">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <h3
+                        class="text-2xl font-poppins font-bold mb-4 text-slate-800 group-hover:text-pink-600 transition">
+                        Video Edukasi (TikTok)</h3>
+                    <p class="text-slate-600 text-base mb-8 leading-relaxed font-medium">Manfaatkan media sosial untuk
+                        menyebarkan kampanye damai yang kreatif dan relevan dengan Gen-Z.</p><a
+                        href="masukkanjuknisvideotiktok.html"
+                        class="inline-flex items-center text-sm font-bold text-pink-600 bg-pink-50 px-5 py-2.5 rounded-full hover:bg-pink-600 hover:text-white transition-all duration-200">Unduh
+                        Panduan <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Card 5 -->
+                <div
+                    class="glass-card p-10 rounded-[2.5rem] border-white border hover:bg-white/95 hover:-translate-y-2 transition-all duration-300 reveal group shadow-md">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-white to-indigo-50 rounded-2xl flex items-center justify-center mb-8 text-indigo-600 text-4xl shadow-md group-hover:scale-105 transition duration-200 border border-indigo-100">
+                        <i class="fa-solid fa-music"></i>
+                    </div>
+                    <h3
+                        class="text-2xl font-poppins font-bold mb-4 text-slate-800 group-hover:text-indigo-600 transition">
+                        Cover Song</h3>
+                    <p class="text-slate-600 text-base mb-8 leading-relaxed font-medium">Bawakan lagu-lagu bertema
+                        kemanusiaan dan perdamaian dengan aransemen dan suaramu sendiri.</p><a
+                        href="masukkanjukniscoversong.html"
+                        class="inline-flex items-center text-sm font-bold text-indigo-600 bg-indigo-50 px-5 py-2.5 rounded-full hover:bg-indigo-600 hover:text-white transition-all duration-200">Unduh
+                        Panduan <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+                <!-- Card 6 -->
+                <div
+                    class="glass-card p-10 rounded-[2.5rem] border-white border hover:bg-white/95 hover:-translate-y-2 transition-all duration-300 reveal group shadow-md">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-white to-yellow-50 rounded-2xl flex items-center justify-center mb-8 text-yellow-600 text-4xl shadow-md group-hover:scale-105 transition duration-200 border border-yellow-100">
+                        <i class="fa-solid fa-quran"></i>
+                    </div>
+                    <h3
+                        class="text-2xl font-poppins font-bold mb-4 text-slate-800 group-hover:text-yellow-600 transition">
+                        MTQ & Kaligrafi</h3>
+                    <p class="text-slate-600 text-base mb-8 leading-relaxed font-medium">Lantunkan ayat suci atau lukis
+                        keindahan ayatuhan yang mengajarkan kedamaian antar umat.</p><a
+                        href="masukkanjuknismyqdankaligrafi.html"
+                        class="inline-flex items-center text-sm font-bold text-yellow-600 bg-yellow-50 px-5 py-2.5 rounded-full hover:bg-yellow-600 hover:text-white transition-all duration-200">Unduh
+                        Panduan <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+                <div
+                    class="glass-card p-10 rounded-[2.5rem] border-white border hover:bg-white/95 hover:-translate-y-2 transition-all duration-300 reveal group shadow-md">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-white to-yellow-50 rounded-2xl flex items-center justify-center mb-8 text-yellow-600 text-4xl shadow-md group-hover:scale-105 transition duration-200 border border-yellow-100">
+                        <i class="fa-solid fa-quran"></i>
+                    </div>
+                    <h3
+                        class="text-2xl font-poppins font-bold mb-4 text-slate-800 group-hover:text-yellow-600 transition">
+                        MTQ & Kaligrafi</h3>
+                    <p class="text-slate-600 text-base mb-8 leading-relaxed font-medium">Lantunkan ayat suci atau lukis
+                        keindahan ayatuhan yang mengajarkan kedamaian antar umat.</p><a
+                        href="masukkanjuknismyqdankaligrafi.html"
+                        class="inline-flex items-center text-sm font-bold text-yellow-600 bg-yellow-50 px-5 py-2.5 rounded-full hover:bg-yellow-600 hover:text-white transition-all duration-200">Unduh
+                        Panduan <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-4xl md:text-5xl font-poppins font-extrabold text-slate-800 mb-5">Jadwal <span
+                        class="text-peace-accent">Kegiatan</span></h2>
+                <p class="text-slate-600 font-medium text-lg">Catat tanggal penting agar kamu tidak ketinggalan momen
+                    berharga ini.</p>
+            </div>
+            <div class="timeline-container reveal">
+                <div class="timeline-box left-box">
+                    <div
+                        class="glass-card p-8 rounded-[2rem] hover:bg-white transition duration-200 cursor-default shadow-md border border-white">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2 font-poppins">Pendaftaran & Pengumpulan</h3>
+                        <p
+                            class="text-base font-bold text-peace-accent mb-3 inline-block bg-blue-50 px-3 py-1 rounded-lg">
+                            <i class="fa-regular fa-calendar mr-2"></i> 24 Juni - 10 Agustus 2026
+                        </p>
+                        <p class="text-slate-600 font-medium">Peserta mendaftar melalui portal terpadu dan mengunggah
+                            hasil karya terbaiknya.</p>
+                    </div>
+                </div>
+                <div class="timeline-box right-box">
+                    <div
+                        class="glass-card p-8 rounded-[2rem] hover:bg-white transition duration-200 cursor-default shadow-md border border-white">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2 font-poppins">Penjurian Online</h3>
+                        <p class="text-base font-bold text-teal-600 mb-3 inline-block bg-teal-50 px-3 py-1 rounded-lg">
+                            <i class="fa-regular fa-calendar mr-2"></i> 11 - 14 Agustus 2026
+                        </p>
+                        <p class="text-slate-600 font-medium">Tim juri profesional mendiskusikan dan menilai karya untuk
+                            menentukan para finalis.</p>
+                    </div>
+                </div>
+                <div class="timeline-box left-box">
+                    <div
+                        class="glass-card p-8 rounded-[2rem] hover:bg-white transition duration-200 cursor-default shadow-md border border-white">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2 font-poppins">Pengumuman Finalis</h3>
+                        <p
+                            class="text-base font-bold text-indigo-600 mb-3 inline-block bg-indigo-50 px-3 py-1 rounded-lg">
+                            <i class="fa-solid fa-bullhorn mr-2"></i> 17 Agustus 2026
+                        </p>
+                        <p class="text-slate-600 font-medium">Tepat pada hari kemerdekaan, para finalis terpilih akan
+                            diluncurkan via Instagram resmi.</p>
+                    </div>
+                </div>
+                <div class="timeline-box right-box">
+                    <div
+                        class="glass-card p-8 rounded-[2rem] hover:bg-white transition duration-200 cursor-default shadow-md border border-white">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2 font-poppins">Technical Meeting</h3>
+                        <p
+                            class="text-base font-bold text-yellow-600 mb-3 inline-block bg-yellow-50 px-3 py-1 rounded-lg">
+                            <i class="fa-solid fa-video mr-2"></i> 18 Agustus 2026
+                        </p>
+                        <p class="text-slate-600 font-medium">Pertemuan teknis interaktif via Zoom untuk finalis sebagai
+                            persiapan babak grand final luring.</p>
+                    </div>
+                </div>
+                <div class="timeline-box left-box">
+                    <div
+                        class="bg-gradient-to-br from-peace-accent to-sky-600 p-8 rounded-[2rem] shadow-xl hover:-translate-y-2 transition duration-200 cursor-default text-white">
+                        <h3 class="text-3xl font-poppins font-bold mb-2 text-white">Grand Final & Awarding</h3>
+                        <p class="text-base font-bold text-blue-100 mb-3 inline-block bg-white/20 px-3 py-1 rounded-lg">
+                            <i class="fa-solid fa-trophy mr-2"></i> 24 Agustus 2026
+                        </p>
+                        <p class="text-white/90 text-lg font-medium">Babak puncak! Penampilan eksklusif grand finalis
+                            dan seremoni penyerahan piala di panggung spektakuler.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGISTRATION SECTION - TOMBOL UTAMA DENGAN TEKS 1 BARIS (TIDAK PECAH) DI HP -->
+    <section id="register" class="py-24 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 text-center reveal">
+            <div
+                class="bg-white/80 rounded-[3rem] p-12 md:p-24 shadow-xl relative overflow-hidden border-2 border-white">
+                <div class="relative z-10">
+                    <div
+                        class="inline-block bg-blue-50 border border-blue-100 text-peace-accent px-5 py-1.5 rounded-full text-sm font-bold mb-8 uppercase tracking-widest">
+                        Pendaftaran Telah Dibuka</div>
+                    <h2 class="text-4xl md:text-6xl font-poppins font-extrabold mb-6 text-slate-800">Satu Langkah untuk
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-peace-accent to-teal-500">Perdamaian</span>
+                    </h2>
+                    <p class="text-slate-600 text-lg md:text-xl mb-12 max-w-3xl mx-auto font-medium leading-relaxed">
+                        Pendaftaran dipermudah! Hanya melalui satu portal terpadu untuk segala macam perlombaan. Siapkan
+                        data diri yang benar, asah persiapanmu, dan wujudkan karya masterpiece-mu.</p>
+
+                    <!-- TOMBOL PORTAL PENDAFTARAN TERPADU - DIPASTIKAN 1 BARIS DI HP -->
+                    <div class="flex justify-center items-center w-full">
+                        <a href="masukkanurldisini.html"
+                            class="btn-primary px-8 py-5 rounded-full font-bold text-lg md:text-xl transition duration-200 inline-flex items-center justify-center whitespace-nowrap register-button-mobile"
+                            style="white-space: nowrap; min-width: fit-content;">
+                            <i class="fa-solid fa-pen-to-square mr-3"></i> Portal Pendaftaran Terpadu
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass-card mt-12 pt-20 pb-10 border-t border-white/60 relative z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-12 mb-16">
+                <div class="lg:w-1/3 text-center lg:text-left">
+                    <h2
+                        class="text-3xl font-poppins font-extrabold mb-5 text-slate-800 flex items-center justify-center lg:justify-start">
+                        <div
+                            class="w-10 h-10 rounded-full flex items-center justify-center mr-3 shadow-md border-2 border-white overflow-hidden">
+                            <img src="logo.png" alt="Logo" class="w-full h-full object-cover">
+                        </div>MAPK FAIR
+                    </h2>
+                    <p class="text-slate-600 text-base font-medium leading-relaxed lg:pr-6">Menginspirasi perdamaian
+                        seluruh elemen dunia melalui kreativitas tanpa batas. Sebuah acara tahunan bergengsi yang
+                        memberdayakan pemuda cemerlang Indonesia.</p>
+                </div>
+                <div class="w-full lg:w-1/3 flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <h3 class="font-poppins font-bold text-xl mb-6 text-slate-800">Tautan Cepat</h3>
+                    <ul class="text-slate-600 text-base font-medium space-y-4">
+                        <li><a href="https://drive.google.com/drive/u/0/folders/1ktPAVF7b9vh9tWjWtkFQi0OifwcHusRN"
+                                class="hover:text-peace-accent flex items-center justify-center lg:justify-start group"><i
+                                    class="fa-solid fa-chevron-right text-xs mr-3 text-peace-accent group-hover:translate-x-1 transition"></i>
+                                Buku Panduan (Guidebook)</a></li>
+                        <li><a href="#register"
+                                class="hover:text-peace-accent flex items-center justify-center lg:justify-start group"><i
+                                    class="fa-solid fa-chevron-right text-xs mr-3 text-peace-accent group-hover:translate-x-1 transition"></i>
+                                Portal Pendaftaran</a></li>
+                        <li><a href="#timeline"
+                                class="hover:text-peace-accent flex items-center justify-center lg:justify-start group"><i
+                                    class="fa-solid fa-chevron-right text-xs mr-3 text-peace-accent group-hover:translate-x-1 transition"></i>
+                                Jadwal Acara</a></li>
+                    </ul>
+                </div>
+                <div class="w-full lg:w-1/3 flex flex-col items-center lg:items-start">
+                    <h3 class="font-poppins font-bold text-xl mb-6 text-slate-800 text-center lg:text-left">Hubungi Kami
+                    </h3>
+                    <div class="space-y-4 w-full max-w-sm"><a href="https://wa.me/6281282007636"
+                            class="flex items-center p-4 bg-white/80 rounded-2xl hover:bg-white transition border border-white shadow-md hover:-translate-y-1">
+                            <div
+                                class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex shrink-0 items-center justify-center text-2xl mr-4 shadow-sm">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div class="text-left w-full">
+                                <p class="text-base font-bold text-slate-800">Kak Yodha (A-E)</p>
+                                <p class="text-sm text-slate-500 font-medium">+62 812-3456-7890</p>
+                            </div>
+                        </a><a href="#"
+                            class="flex items-center p-4 bg-white/80 rounded-2xl hover:bg-white transition border border-white shadow-md hover:-translate-y-1">
+                            <div
+                                class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex shrink-0 items-center justify-center text-2xl mr-4 shadow-sm">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div class="text-left w-full">
+                                <p class="text-base font-bold text-slate-800">Kak Misykat (F-J)</p>
+                                <p class="text-sm text-slate-500 font-medium">+62 809-8765-4321</p>
+                            </div>
+                        </a></div>
+                </div>
+            </div>
+            <div class="border-t border-slate-300/50 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <p class="text-slate-500 text-sm font-semibold">&copy; 2026 MAPK FAIR. United for Peace.</p>
+                <div class="flex space-x-4"><a href="https://www.instagram.com/mapk_solo/"
+                        class="w-10 h-10 rounded-full bg-white text-slate-600 flex items-center justify-center hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:text-white transition shadow-sm border border-slate-100"><i
+                            class="fa-brands fa-instagram"></i></a><a href="https://www.tiktok.com/@mapk_solo"
+                        class="w-10 h-10 rounded-full bg-white text-slate-600 flex items-center justify-center hover:bg-black hover:text-white transition shadow-sm border border-slate-100"><i
+                            class="fa-brands fa-tiktok"></i></a><a href="https://www.youtube.com/@MAPKSoloChannel"
+                        class="w-10 h-10 rounded-full bg-white text-slate-600 flex items-center justify-center hover:bg-red-600 hover:text-white transition shadow-sm border border-slate-100"><i
+                            class="fa-brands fa-youtube"></i></a><a href="https://www.youtube.com/@mapksolo"></a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Ringan -->
+    <script>
+            (function () {
+                const navbar = document.getElementById('navbar');
+                let ticking = false;
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        requestAnimationFrame(() => {
+                            const isScrolled = window.scrollY > 20;
+                            if (isScrolled) {
+                                navbar.classList.add('glass-nav', 'py-2');
+                                navbar.classList.remove('py-3');
+                            } else {
+                                navbar.classList.remove('glass-nav', 'py-2');
+                                navbar.classList.add('py-3');
+                            }
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                });
+
+                const btn = document.getElementById('mobile-menu-btn');
+                const menu = document.getElementById('mobile-menu');
+                if (btn && menu) {
+                    btn.addEventListener('click', () => {
+                        menu.classList.toggle('hidden');
+                    });
+                }
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+                document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+                // Countdown Timer Logic
+                const countDownDate = new Date("Aug 29, 2026 07:00:00").getTime();
+
+                const countdownFunction = setInterval(function () {
+                    const now = new Date().getTime();
+                    const distance = countDownDate - now;
+
+                    if (distance < 0) {
+                        clearInterval(countdownFunction);
+                        document.getElementById("cd-days").innerHTML = "00";
+                        document.getElementById("cd-hours").innerHTML = "00";
+                        document.getElementById("cd-minutes").innerHTML = "00";
+                        document.getElementById("cd-seconds").innerHTML = "00";
+                        return;
+                    }
+
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    document.getElementById("cd-days").innerHTML = days < 10 ? "0" + days : days;
+                    document.getElementById("cd-hours").innerHTML = hours < 10 ? "0" + hours : hours;
+                    document.getElementById("cd-minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+                    document.getElementById("cd-seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+                }, 1000);
+            })();
+    </script>
+    <style>
+        /* TAMBAHAN KHUSUS UNTUK TOMBOL REGISTRASI AGAR DI HP TIDAK PECAH JADI 3 BARIS */
+        @media (max-width: 640px) {
+
+            .btn-primary.register-button-mobile,
+            .btn-primary[href="masukkanurldisini.html"] {
+                white-space: nowrap !important;
+                font-size: 0.85rem !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+                padding-top: 0.9rem !important;
+                padding-bottom: 0.9rem !important;
+                display: inline-flex !important;
+                width: auto !important;
+                max-width: 95vw;
+            }
+
+            .btn-primary.register-button-mobile i,
+            .btn-primary[href="masukkanurldisini.html"] i {
+                margin-right: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            /* Hero buttons di HP agar tetap rapi */
+            .hero-buttons a {
+                font-size: 0.8rem !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+                white-space: nowrap;
+            }
+
+            /* Membuat card lomba lebih compact di HP agar tidak memenuhi layar penuh */
+            .competition-grid .glass-card {
+                padding: 1.5rem !important;
+                border-radius: 1.5rem !important;
+            }
+
+            .competition-grid .glass-card>div:first-child {
+                width: 4rem !important;
+                height: 4rem !important;
+                margin-bottom: 1.25rem !important;
+                font-size: 1.875rem !important;
+            }
+
+            .competition-grid .glass-card>div:first-child img {
+                width: 32px !important;
+                height: 32px !important;
+            }
+
+            .competition-grid .glass-card h3 {
+                font-size: 1.25rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+
+            .competition-grid .glass-card p {
+                font-size: 0.875rem !important;
+                margin-bottom: 1.25rem !important;
+                line-height: 1.4 !important;
+            }
+
+            .competition-grid .glass-card a {
+                padding: 0.5rem 1.25rem !important;
+                font-size: 0.8rem !important;
+            }
+        }
+
+        /* Untuk tablet kecil sekalipun */
+        @media (max-width: 480px) {
+
+            .btn-primary.register-button-mobile,
+            .btn-primary[href="masukkanurldisini.html"] {
+                font-size: 0.75rem !important;
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+        }
+    </style>
+</body>
+
+</html>
